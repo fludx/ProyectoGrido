@@ -22,7 +22,7 @@ Cuando terminen sus cambios, guardenlos con
 ```
 git add .
 git commit -m "acá ponen que hicieron"
-git push origin main
+git push 
 ```
 y listo papa  
 
