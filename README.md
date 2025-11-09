@@ -15,7 +15,7 @@ Y listo, tienen la copia en su compu
 
 Ahora, cada vez que se sienten a laburar, antes de tocar nada
 ```
-git pull origin main
+git pull 
 Porque si no hacen pull y tocan cosas, se jode todo.
 ```
 Cuando terminen sus cambios, guardenlos con
