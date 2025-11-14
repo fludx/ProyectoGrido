@@ -296,6 +296,83 @@ footer {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
 }
+/* ===========================
+   LISTAS DENTRO DEL SUBMENÚ
+=========================== */
+
+.menu-productos-desplegable .contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.menu-productos {
+  max-width: 250px;
+}
+
+.titulo-categoria {
+  background-color: #ffd54f;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.titulo-categoria:hover {
+  background-color: #ffca28;
+}
+
+.sabores-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  overflow: hidden;
+  max-height: 0;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.sabores-lista li {
+  padding: 7px 15px;
+  cursor: pointer;
+}
+
+.sabores-lista li:hover {
+  background-color: #fff59d;
+}
+
+.sabores-lista.active {
+  max-height: 300px;
+  padding: 5px 0;
+}
+
+.imagen-sabor {
+  text-align: center;
+}
+
+.imagen-sabor img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.imagen-sabor img:hover {
+  transform: scale(1.06);
+}
+
+#nombre-sabor {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #003366;
+}
 
 /* =========================================
    MEDIA QUERIES
