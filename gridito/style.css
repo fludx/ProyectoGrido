@@ -2,157 +2,355 @@
    ESTILOS GENERALES
 ========================================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #f5f5f5;
-    color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 /* =========================================
    HEADER Y NAVEGACIÓN
 ========================================= */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 120px;
-    padding: 0 2rem;
-    background-color: #fff;
-    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  padding: 0 2rem;
+  background-color: #fff;
+  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .logo {
-    display: flex;
+  display: flex;
 }
 
 .logo img {
-    margin-top: 10px;
-    margin-left: 50px;
-    height: 75px;
+  margin-top: 10px;
+  margin-left: 50px;
+  height: 75px;
 }
 
 /* ===== Menú ===== */
 .menu-contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-items {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .menu-items li a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    text-decoration: none;
-    color: #10069F;
-    font-size: 1.1rem;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  text-decoration: none;
+  color: #10069F;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 /* Iconos del menú */
 .icono-menu {
-    width: 1.8rem;
-    height: auto;
-    object-fit: contain;
-    transition: all 0.3s ease;
-    filter: brightness(0) saturate(100%) invert(9%) sepia(95%) saturate(5043%)
-            hue-rotate(244deg) brightness(88%) contrast(114%);
-            
+  width: 1.8rem;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(9%) sepia(95%)
+    saturate(5043%) hue-rotate(244deg) brightness(88%) contrast(114%);
 }
 
 .menu-items li a:hover {
-    color: #40C4FF;
-    transform: translateY(-3px);
+  color: #40C4FF;
+  transform: translateY(-3px);
 }
 
 .menu-items li a:hover .icono-menu {
-    transform: scale(1.1);
-    filter: brightness(0) saturate(100%) invert(69%) sepia(25%) saturate(2046%)
-            hue-rotate(171deg) brightness(99%) contrast(94%);
+  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(69%) sepia(25%)
+    saturate(2046%) hue-rotate(171deg) brightness(99%) contrast(94%);
+}
+
+/* ======================================
+   MENÚ DESPLEGABLE (PRODUCTOS)
+====================================== */
+
+.productos-item {
+    position: relative;
+}
+
+/* Cuadro cerca de "Productos" */
+.menu-productos-desplegable {
+    position: absolute;
+    top: 100%;     /* Debajo del botón */
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 600px;
+    min-height: 300px;
+
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 999;
+}
+
+/* Mantener abierto con hover en Productos o en el cuadro */
+.productos-item:hover .menu-productos-desplegable,
+.menu-productos-desplegable:hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Título */
+.menu-productos-desplegable h3 {
+    color: #10069F;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+   CONTENIDO DEL SUBMENÚ
+=========================== */
+
+.menu-productos-desplegable .contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ===========================
+   LISTAS Y CATEGORÍAS
+=========================== */
+
+.menu-productos {
+  max-width: 260px;
+}
+
+/* Títulos: azul fuerte */
+.titulo-categoria {
+  background-color: #10069F;
+  color: white;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.titulo-categoria:hover {
+  background-color: #1e22b9;
+}
+
+/* Caja de sabores */
+.sabores-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  overflow: hidden;
+  max-height: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #c6d2ff;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+/* Ítems */
+.sabores-lista li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Hover dorado sutil */
+.sabores-lista li:hover {
+  background-color: #40c3ffc2;
+   border-radius: 8px;
+}
+
+.sabores-lista.active {
+  max-height: 280px;
+  padding: 7px 0;
+}
+
+/* ===========================
+   IMAGEN DEL SABOR
+=========================== */
+
+.imagen-sabor {
+  text-align: center;
+  width: 200px;
+}
+
+.imagen-sabor img {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid #10069F;
+  transition: transform 0.3s ease;
+}
+
+.imagen-sabor img:hover {
+  transform: scale(1.05);
+}
+
+#nombre-sabor {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #10069F;
+  font-size: 1.2rem;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .menu-productos-desplegable .contenedor {
+    gap: 25px;
+  }
+
+  .imagen-sabor img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 650px) {
+  .menu-productos-desplegable .contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .menu-productos {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .imagen-sabor {
+    width: auto;
+  }
+
+  .imagen-sabor img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Celulares chicos */
+@media (max-width: 450px) {
+  .titulo-categoria {
+    font-size: 0.95rem;
+  }
+
+  .sabores-lista li {
+    font-size: 0.9rem;
+  }
+
+  .imagen-sabor img {
+    width: 140px;
+    height: 140px;
+  }
+
+  #nombre-sabor {
+    font-size: 1rem;
+  }
 }
 
 /* ===== Botón de Login ===== */
 .login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .boton-login {
-    background-color: #10069F;
-    color: #fff !important;
-    padding: 12px 25px !important;
-    border-radius: 25px !important;
-    font-weight: 700 !important;
-    box-shadow: 0 3px 8px rgba(16, 6, 159, 0.3);
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    transition: all 0.3s ease !important;
+  background-color: #10069F;
+  color: #fff !important;
+  padding: 12px 25px !important;
+  border-radius: 25px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 3px 8px rgba(16, 6, 159, 0.3);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
 }
 
 .boton-login:hover {
-    background-color: #40C4FF !important;
-    transform: translateY(-3px) !important;
-    box-shadow: 0 5px 12px rgba(28, 112, 237, 0.4) !important;
+  background-color: #40C4FF !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 12px rgba(28, 112, 237, 0.4) !important;
 }
 
 /* Icono dentro del botón login */
 .icono-menu-login {
-    width: 1.8rem;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
-            hue-rotate(0deg) brightness(100%) contrast(100%);
+  width: 1.8rem;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+    saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 .menu-items li a:hover .icono-menu-login {
-    transform: scale(1.1);
-    
+  transform: scale(1.1);
 }
 
 /* =========================================
    SECCIONES Y FONDO
 ========================================= */
 .section-fondo {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .section-fondo svg {
-    display: block;
-    width: 100%;
-    height: 550px;
+  display: block;
+  width: 100%;
+  height: 550px;
 }
 
 .espacio {
-    height: 800px;
+  height: 800px;
 }
 
-.nov-clases{
-
+.nov-clases {
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -161,15 +359,15 @@ body {
   margin-top: 10REM;
 }
 
-.nov-clases h2{
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #10069F;
+.nov-clases h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #10069F;
 }
 
-.novedades-clases{
-    display: flex;
+.novedades-clases {
+  display: flex;
   gap: 20px;
   justify-content: space-between;
 }
@@ -186,7 +384,7 @@ body {
 .novedades-clases img {
   width: 230px;
   height: 280px;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 6px;
   transition: transform .2s;
 }
@@ -203,243 +401,165 @@ body {
    FOOTER
 ========================================= */
 footer {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 2rem 1rem;
-    margin-top: auto;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: auto;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .footer-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .footer-section ul {
-    list-style: none;
+  list-style: none;
 }
 
 .footer-section ul li {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer-section a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 .footer-section a:hover {
-    color: #818188;
+  color: #818188;
 }
 
 .footer-bottom {
-    max-width: 1200px;
-    margin: 2rem auto 0;
-    padding-top: 1rem;
-    border-top: 1px solid #444;
-    text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
 }
 
 /* =========================================
    WHATSAPP FLOTANTE
 ========================================= */
 .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    transition: all 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .whatsapp-bubble {
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    animation: pulse 2s infinite;
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-bubble:hover {
-    transform: scale(1.1);
-    animation: none;
-}
-
-.whatsapp-bubble img {
-    width: 35px;
-    height: 35px;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
-}
-/* ===========================
-   LISTAS DENTRO DEL SUBMENÚ
-=========================== */
-
-.menu-productos-desplegable .contenedor {
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.menu-productos {
-  max-width: 250px;
-}
-
-.titulo-categoria {
-  background-color: #ffd54f;
-  padding: 10px 15px;
-  margin-bottom: 5px;
-  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.titulo-categoria:hover {
-  background-color: #ffca28;
-}
-
-.sabores-lista {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px;
-  overflow: hidden;
-  max-height: 0;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-.sabores-lista li {
-  padding: 7px 15px;
-  cursor: pointer;
-}
-
-.sabores-lista li:hover {
-  background-color: #fff59d;
-}
-
-.sabores-lista.active {
-  max-height: 300px;
-  padding: 5px 0;
-}
-
-.imagen-sabor {
-  text-align: center;
-}
-
-.imagen-sabor img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid #eee;
+  animation: pulse 2s infinite;
   transition: transform 0.3s ease;
 }
 
-.imagen-sabor img:hover {
-  transform: scale(1.06);
+.whatsapp-bubble:hover {
+  transform: scale(1.1);
+  animation: none;
 }
 
-#nombre-sabor {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #003366;
+.whatsapp-bubble img {
+  width: 35px;
+  height: 35px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 /* =========================================
    MEDIA QUERIES
 ========================================= */
 @media (max-width: 1024px) {
-    .menu-items {
-        gap: 1.5rem;
-    }
-    .menu-items li a {
-        font-size: 1rem;
-    }
-    .icono-menu {
-        width: 1.6rem;
-    }
+  .menu-items {
+    gap: 1.5rem;
+  }
+  .menu-items li a {
+    font-size: 1rem;
+  }
+  .icono-menu {
+    width: 1.6rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 1rem;
-    }
-    .logo img {
-        margin-left: 0;
-        margin-bottom: 1rem;
-    }
-    .menu-items {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-    }
-    .menu-items li {
-        width: 100%;
-    }
-    .menu-items li a {
-        justify-content: center;
-        padding: 12px;
-    }
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-    .whatsapp-bubble {
-        width: 55px;
-        height: 55px;
-    }
-    .whatsapp-bubble img {
-        width: 30px;
-        height: 30px;
-    }
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+  .logo img {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+  .menu-items {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  .menu-items li {
+    width: 100%;
+  }
+  .menu-items li a {
+    justify-content: center;
+    padding: 12px;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  .whatsapp-bubble {
+    width: 55px;
+    height: 55px;
+  }
+  .whatsapp-bubble img {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media (max-width: 480px) {
-    .navbar {
-        padding: 0.5rem;
-    }
-    .logo img {
-        height: 60px;
-    }
-    .menu-items li a {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-    .icono-menu {
-        width: 1.4rem;
-    }
-    .boton-login {
-        padding: 10px 20px !important;
-    }
+  .navbar {
+    padding: 0.5rem;
+  }
+  .logo img {
+    height: 60px;
+  }
+  .menu-items li a {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  .icono-menu {
+    width: 1.4rem;
+  }
+  .boton-login {
+    padding: 10px 20px !important;
+  }
 }
-
