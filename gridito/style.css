@@ -23,7 +23,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 120px;
+  height: 100px;
   padding: 0 2rem;
   background-color: #fff;
   box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
@@ -333,19 +333,106 @@ body {
   transform: scale(1.1);
 }
 
+.carousel {
+  margin-top: 1px;     
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 575px;
+  margin-left: auto;    
+  margin-right: auto;   
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 500px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 575px;
+  object-fit: cover;
+}
+
+/* Botones */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #333;
+}
+
 /* =========================================
    SECCIONES Y FONDO
 ========================================= */
-.section-fondo {
-  overflow: hidden;
+.tua {
+position: relative;
 }
 
-.section-fondo svg {
+.section-fondo {
+  overflow: hidden; 
+  z-index: 1;
+}
+
+.section-fondo-azul {
+  position: relative;
+  z-index: 5;
+}
+
+.section-fondo-azul svg {
   display: block;
   width: 100%;
-  height: 550px;
+  height: 425px;
+  margin-top: -200px;
+  pointer-events: none;
 }
 
+
+.section-fondo-rojo svg {
+  display: block;
+  width: 100%;
+  height: 425px;
+}
 .espacio {
   height: 800px;
 }
